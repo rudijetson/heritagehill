@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .container {
+    @apply px-4 md:px-0;  /* 16px padding on mobile, no padding on desktop */
+  }
+} 
