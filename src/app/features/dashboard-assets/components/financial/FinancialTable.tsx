@@ -2,11 +2,11 @@
 
 import { useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import { additionalExpensesData } from '@/app/utils/additionalExpensesData';
-import { financialData } from '@/app/utils/financialData';
-import { costOfGoodsSoldData } from '@/app/utils/costOfGoodsSoldData';
-import { financialMetricsData } from '@/app/utils/financialMetricsData';
-import { expensesData } from '@/app/utils/expensesData';
+import { additionalExpensesData } from '@/app/features/dashboard-assets/utils/additionalExpensesData';
+import { financialData } from '@/app/features/dashboard-assets/utils/financialData';
+import { costOfGoodsSoldData } from '@/app/features/dashboard-assets/utils/costOfGoodsSoldData';
+import { financialMetricsData } from '@/app/features/dashboard-assets/utils/financialMetricsData';
+import { expensesData } from '@/app/features/dashboard-assets/utils/expensesData';
 
 type Period = 'Q4 2019' | '2020' | '2021' | '2022' | '2023' | 'Total';
 type SectionKey = 'income' | 'cogs' | 'expenses';

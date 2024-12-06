@@ -1,4 +1,4 @@
-import { chartLayout } from "../../app/utils/chartConfig"
+import { chartLayout } from "@/app/features/dashboard-assets/utils/chartConfig"
 
 export function ExecutiveSummaryHeader() {
   return (

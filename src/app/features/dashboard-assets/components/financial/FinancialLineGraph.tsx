@@ -1,8 +1,8 @@
 "use client"
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { getMarketingGraphData } from "../../app/utils/dashboardUtils"
-import { chartLayout, formatCurrency, tooltipStyle } from "../../app/utils/chartConfig"
+import { getFinancialOverviewData } from "@/app/features/dashboard-assets/utils/dashboardUtils"
+import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig"
 
 interface TooltipProps {
   active?: boolean;
@@ -14,22 +14,16 @@ interface TooltipProps {
   label?: string;
 }
 
-export function MarketingLineGraph() {
-  const data = getMarketingGraphData();
+export function FinancialLineGraph() {
+  const data = getFinancialOverviewData();
 
   const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
     if (active && payload && payload.length) {
-      const sortedPayload = [...payload].sort((a, b) => {
-        if (a.name === "Online Sales") return -1;
-        if (b.name === "Online Sales") return 1;
-        return 0;
-      });
-
       return (
         <div className={tooltipStyle}>
           <p className="font-medium text-gray-900 mb-2">{label}</p>
           <div className="space-y-1">
-            {sortedPayload.map((entry, index) => (
+            {payload.map((entry, index) => (
               <p 
                 key={index} 
                 className="text-sm"
@@ -65,15 +59,21 @@ export function MarketingLineGraph() {
         <Legend {...chartLayout.chart.legend} />
         <Line 
           {...chartLayout.chart.line}
-          dataKey="onlineSales" 
+          dataKey="income" 
           stroke="#1e40af"
-          name="Online Sales" 
+          name="Income" 
         />
         <Line 
           {...chartLayout.chart.line}
-          dataKey="adSpend" 
+          dataKey="cogs" 
           stroke="#991b1b"
-          name="Ad Spend" 
+          name="Cost of Goods" 
+        />
+        <Line 
+          {...chartLayout.chart.line}
+          dataKey="operatingExpenses" 
+          stroke="#166534"
+          name="Operating Expenses" 
         />
       </LineChart>
     </ResponsiveContainer>

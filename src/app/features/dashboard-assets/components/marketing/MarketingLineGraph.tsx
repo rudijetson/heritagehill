@@ -1,8 +1,8 @@
 "use client"
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { getFinancialOverviewData } from "../../app/utils/dashboardUtils"
-import { chartLayout, formatCurrency, tooltipStyle } from "../../app/utils/chartConfig"
+import { getMarketingGraphData } from "@/app/features/dashboard-assets/utils/dashboardUtils"
+import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig"
 
 interface TooltipProps {
   active?: boolean;
@@ -14,16 +14,22 @@ interface TooltipProps {
   label?: string;
 }
 
-export function FinancialLineGraph() {
-  const data = getFinancialOverviewData();
+export function MarketingLineGraph() {
+  const data = getMarketingGraphData();
 
   const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
     if (active && payload && payload.length) {
+      const sortedPayload = [...payload].sort((a, b) => {
+        if (a.name === "Online Sales") return -1;
+        if (b.name === "Online Sales") return 1;
+        return 0;
+      });
+
       return (
         <div className={tooltipStyle}>
           <p className="font-medium text-gray-900 mb-2">{label}</p>
           <div className="space-y-1">
-            {payload.map((entry, index) => (
+            {sortedPayload.map((entry, index) => (
               <p 
                 key={index} 
                 className="text-sm"
@@ -59,21 +65,15 @@ export function FinancialLineGraph() {
         <Legend {...chartLayout.chart.legend} />
         <Line 
           {...chartLayout.chart.line}
-          dataKey="income" 
+          dataKey="onlineSales" 
           stroke="#1e40af"
-          name="Income" 
+          name="Online Sales" 
         />
         <Line 
           {...chartLayout.chart.line}
-          dataKey="cogs" 
+          dataKey="adSpend" 
           stroke="#991b1b"
-          name="Cost of Goods" 
-        />
-        <Line 
-          {...chartLayout.chart.line}
-          dataKey="operatingExpenses" 
-          stroke="#166534"
-          name="Operating Expenses" 
+          name="Ad Spend" 
         />
       </LineChart>
     </ResponsiveContainer>

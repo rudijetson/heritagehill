@@ -1,15 +1,15 @@
 "use client"
 
 import React from 'react'
-import { ExecutiveSummary } from "./executive/ExecutiveSummary"
-import { FinancialLineGraph } from "./financial/FinancialLineGraph"
-import { SalesChannelLineGraph } from "./sales/SalesChannelLineGraph"
-import { MarketingLineGraph } from "./marketing/MarketingLineGraph"
-import { CompanyTimeline } from "./timeline/CompanyTimeline"
-import { FinancialTable } from "./financial/FinancialTable"
-import { chartLayout } from "../app/utils/chartConfig"
-import { ProfitabilityLineGraph } from "./financial/ProfitabilityLineGraph"
-import { MarketOpportunity } from "./executive/MarketOpportunity"
+import { ExecutiveSummary } from "@/app/features/dashboard-assets/components/executive/ExecutiveSummary"
+import { MarketOpportunity } from "@/app/features/dashboard-assets/components/executive/MarketOpportunity"
+import { FinancialLineGraph } from "@/app/features/dashboard-assets/components/financial/FinancialLineGraph"
+import { FinancialTable } from "@/app/features/dashboard-assets/components/financial/FinancialTable"
+import { ProfitabilityLineGraph } from "@/app/features/dashboard-assets/components/financial/ProfitabilityLineGraph"
+import { SalesChannelLineGraph } from "@/app/features/dashboard-assets/components/sales/SalesChannelLineGraph"
+import { MarketingLineGraph } from "@/app/features/dashboard-assets/components/marketing/MarketingLineGraph"
+import { CompanyTimeline } from "@/app/features/dashboard-assets/components/timeline/CompanyTimeline"
+import { chartLayout } from "@/app/features/dashboard-assets/utils/chartConfig"
 import { motion } from 'framer-motion'
 
 const sections = [

@@ -1,8 +1,8 @@
 "use client"
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { getProfitabilityData } from "@/app/utils/dashboardUtils"
-import { chartLayout, formatCurrency, tooltipStyle } from "@/app/utils/chartConfig"
+import { getSalesChannelData } from "@/app/features/dashboard-assets/utils/dashboardUtils"
+import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig"
 
 interface TooltipProps {
   active?: boolean;
@@ -14,8 +14,8 @@ interface TooltipProps {
   label?: string;
 }
 
-export function ProfitabilityLineGraph() {
-  const data = getProfitabilityData();
+export function SalesChannelLineGraph() {
+  const data = getSalesChannelData();
 
   const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
     if (active && payload && payload.length) {
@@ -59,17 +59,24 @@ export function ProfitabilityLineGraph() {
         <Legend {...chartLayout.chart.legend} />
         <Line 
           {...chartLayout.chart.line}
-          dataKey="grossProfit" 
+          dataKey="online" 
           stroke="#1e40af"
-          name="Gross Profit" 
+          name="Online" 
         />
         <Line 
           {...chartLayout.chart.line}
-          dataKey="netOperatingIncome" 
+          dataKey="retail" 
           stroke="#991b1b"
-          name="Net Operating Income" 
+          name="Retail" 
+        />
+        <Line 
+          {...chartLayout.chart.line}
+          dataKey="wholesale" 
+          stroke="#166534"
+          name="Wholesale" 
         />
       </LineChart>
     </ResponsiveContainer>
   )
-} 
+}
+
