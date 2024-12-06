@@ -53,9 +53,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/TOL-RBG.png', sizes: '32x32', type: 'image/png' },
+      { url: '/TOL-RBG.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: [
+      { url: '/TOL-RBG.png', type: 'image/png' },
     ],
     apple: [
-      { url: '/TOL-RBG.png' },
+      { url: '/TOL-RBG.png', sizes: '180x180' },
+    ],
+    other: [
+      { rel: 'icon', url: '/TOL-RBG.png' },
     ],
   },
 }
