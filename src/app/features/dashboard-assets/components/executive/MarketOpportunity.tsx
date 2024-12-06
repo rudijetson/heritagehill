@@ -29,7 +29,7 @@ const opportunities = [
   },
   {
     title: "Corporate & Government Partnerships",
-    icon: "🤝",
+    icon: "🤝🏿",
     description: "Building strategic partnerships for sustainable growth",
     points: [
       "Corporate branded product solutions",
