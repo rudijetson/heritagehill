@@ -10,6 +10,7 @@ const geistSans = localFont({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://heritagehill.vercel.app'),
   title: 'Heritage Hill | Economic Infrastructure for the Black Diaspora',
   description: 'Heritage Hill is building economic infrastructure to empower the Black Diaspora through innovative financial solutions, community engagement, and sustainable wealth creation.',
   keywords: [
