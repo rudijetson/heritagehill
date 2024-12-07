@@ -1,13 +1,17 @@
+"use client"
+
 import { ExecutiveSummaryHeader } from './ExecutiveSummaryHeader'
 import { ExecutiveMetrics } from './ExecutiveMetrics'
 import { ExecutiveContent } from './ExecutiveContent'
 
 export function ExecutiveSummary() {
   return (
-    <div className="bg-gray-50 p-6 rounded-lg">
+    <div className="space-y-8">
       <ExecutiveSummaryHeader />
+      <div className="prose prose-lg max-w-none">
+        <ExecutiveContent />
+      </div>
       <ExecutiveMetrics />
-      <ExecutiveContent />
     </div>
   )
 }

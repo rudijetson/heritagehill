@@ -75,6 +75,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
       <body className={`relative bg-white min-h-screen ${geistSans.variable}`}>
         <div className="fixed inset-0 bg-white z-[-1]" />
         <ClientLayout>
