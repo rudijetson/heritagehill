@@ -1,74 +1,112 @@
 "use client"
 
+import { typography } from "@/app/styles/typography"
+
 export function ExecutiveContent() {
   return (
-    <div className="space-y-8 text-gray-700">
-      <section>
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">The Genesis</h3>
-        <p>
-          Heritage Hill was founded on a powerful belief: the greatest economic opportunities 
-          emerge from creating cooperative, community-centered supply chain ecosystems. 
-          Recognizing the immense untapped potential within the HBCU ecosystem, Divine Nine 
-          fraternities and sororities, and the broader Black community, we saw a path to foster 
-          genuine economic sovereignty and sustainable commercial success.
-        </p>
-      </section>
+    <div className="bg-white rounded-lg shadow-sm p-8">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <section className="space-y-6">
+          <div className="space-y-4">
+            <h3 className={typography.h3}>The Genesis</h3>
+            <p className={typography.lead}>
+              Heritage Hill was founded on a fundamental belief: <span className={typography.emphasis}>
+              the greatest economic opportunities emerge from creating cooperative, 
+              community-centered supply chain ecosystems.</span>
+            </p>
+          </div>
 
-      <section>
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Journey of Discovery</h3>
-        <p>
-          This case study chronicles our four-year journey of experimentation, innovation, and 
-          learning. We set out to design, test, and understand the essential components needed to 
-          build a cooperative ecosystem supply chain that could deliver lasting economic impact.
-        </p>
-        <div className="mt-6 space-y-4">
-          <h4 className="text-xl font-medium text-gray-800">Key Areas of Exploration:</h4>
-          <ul className="list-disc pl-6 space-y-3">
-            <li>
-              <span className="font-medium">Blended Capital Models:</span> Innovating funding 
-              mechanisms for community-based businesses that balance profitability, equity, and 
-              scalability. We explored:
-              <ul className="list-disc pl-6 mt-2 space-y-2 text-gray-600">
-                <li>Funding partnerships that align investor goals with community outcomes</li>
-                <li>Non-extractive funding flows to prevent labor exploitation</li>
-                <li>Strategies for aggregating micro-enterprises into scalable operations</li>
-                <li>Capital compositions that support equitable growth</li>
-              </ul>
-            </li>
-            <li>
-              <span className="font-medium">Cooperative Structures:</span> Understanding and testing 
-              the legal and operational frameworks for worker-owned, consumer-owned, and 
-              multi-stakeholder cooperatives as engines for wealth creation.
-            </li>
-            <li>
-              <span className="font-medium">Market Insights:</span> Assessing the viability of 
-              culturally resonant products through multi-channel e-commerce, retail strategies, 
-              and licensing frameworks within the collegiate apparel market.
-            </li>
-            <li>
-              <span className="font-medium">Pan-African Supply Chains:</span> Mapping international 
-              trade networks to connect supply chains across the African continent, and analyzing 
-              import/export feasibility for a Pan-African economic framework.
-            </li>
-            <li>
-              <span className="font-medium">Operational Frameworks:</span> Documenting every step of 
-              the supply chain, from raw material sourcing to end consumer delivery, including 
-              manufacturing workflows, seasonality, inventory systems, and production cycles.
-            </li>
-          </ul>
-        </div>
-      </section>
+          <p className={typography.body}>
+            Through deep analysis of the HBCU ecosystem, Divine Nine organizations, 
+            and broader Black community, we identified significant potential for 
+            sustainable economic development through coordinated supply chain innovation.
+          </p>
+        </section>
 
-      <section>
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">The Vision Ahead</h3>
-        <p>
-          From this journey, we have created a replicable framework for designing equitable, 
-          cooperative supply chains that meet the unique needs of historically underserved 
-          communities. By combining our insights, challenges, and achievements, this presentation 
-          serves as a roadmap for future innovations aimed at transforming the economic landscape 
-          of the Black Diaspora and beyond.
-        </p>
-      </section>
+        <section className="space-y-6">
+          <div className="space-y-4">
+            <h3 className={typography.h3}>Core Innovation Areas</h3>
+            <p className={typography.body}>
+              Our four-year journey of experimentation and learning focused on four key areas 
+              essential to building sustainable cooperative ecosystems:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <h4 className={typography.h4}>Blended Capital Models</h4>
+                <p className={typography.bodySmall}>
+                  Innovative funding mechanisms balancing profitability, equity, and scalability:
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    "Community-aligned funding partnerships",
+                    "Non-extractive capital flows",
+                    "Micro-enterprise aggregation",
+                    "Equitable growth structures"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1 h-1 rounded-full bg-gray-300 mt-2 flex-shrink-0" />
+                      <span className={typography.bodySmall}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className={typography.h4}>Pan-African Supply Chains</h4>
+                <p className={typography.bodySmall}>
+                  Building international trade networks connecting supply chains across the African 
+                  continent, with detailed import/export frameworks supporting Pan-African economic 
+                  development.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <h4 className={typography.h4}>Cooperative Structures</h4>
+                <p className={typography.bodySmall}>
+                  Implementing and testing frameworks for worker-owned, consumer-owned, and 
+                  multi-stakeholder cooperatives as sustainable engines for community wealth creation.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className={typography.h4}>Market & Operations</h4>
+                <p className={typography.bodySmall}>
+                  Developing comprehensive operational frameworks and market strategies:
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    "Multi-channel e-commerce integration",
+                    "Collegiate market licensing",
+                    "Supply chain optimization",
+                    "Manufacturing systems design"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1 h-1 rounded-full bg-gray-300 mt-2 flex-shrink-0" />
+                      <span className={typography.bodySmall}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <h3 className={typography.h3}>The Vision Forward</h3>
+          <p className={typography.body}>
+            This journey has yielded a replicable framework for designing equitable, 
+            cooperative supply chains that meet the unique needs of historically underserved 
+            communities. <span className={typography.emphasis}>Our insights and learnings 
+            provide a roadmap for transforming the economic landscape of the Black Diaspora 
+            and beyond.</span>
+          </p>
+        </section>
+      </div>
     </div>
   )
-} 
+}
