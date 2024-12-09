@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react'
 const sections = [
   { id: 'executive', label: 'Executive Summary' },
   { id: 'market', label: 'Market Opportunity' },
+  { id: 'supply-chain', label: 'Supply Chain' },
   { id: 'timeline', label: 'Our Journey' },
   { id: 'financial', label: 'Financial Overview' },
   { id: 'profitability', label: 'Profitability' },

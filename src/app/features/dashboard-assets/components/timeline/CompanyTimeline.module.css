@@ -1,0 +1,211 @@
+.container {
+  padding: 2rem;
+  background: white;
+}
+
+.header {
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a2b34;
+}
+
+.intro {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 1rem;
+}
+
+.yearSection {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.yearMarker {
+  position: sticky;
+  top: 1rem;
+  background: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.timelineIcon {
+  position: absolute;
+  left: -1rem;
+  width: 2rem;
+  height: 2rem;
+  background: white;
+  border: 2px solid #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.timelineContent {
+  flex: 1;
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.timelineContent:hover {
+  transform: translateY(-2px);
+}
+
+.date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4CAF50;
+  margin-bottom: 0.5rem;
+}
+
+.eventTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a2b34;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.975rem;
+}
+
+.description a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.description a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .timelineItem {
+    padding-left: 1.5rem;
+    gap: 1rem;
+  }
+
+  .timelineIcon {
+    left: -0.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
+  }
+
+  .timelineContent {
+    padding: 1rem;
+  }
+}
+
+.yearSelector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.yearButton {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #4CAF50;
+  border-radius: 0.75rem;
+  background: white;
+  color: #4CAF50;
+  font-weight: 600;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.yearButton:hover {
+  background: #f1f9f1;
+  transform: translateY(-2px);
+}
+
+.activeYear {
+  background: #1a2b34;
+  border-color: #1a2b34;
+  color: white;
+}
+
+.activeYear:hover {
+  background: #2c3e50;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  background: #f8fafc;
+  border-radius: 1rem;
+  color: #64748b;
+  font-size: 1.125rem;
+} 
