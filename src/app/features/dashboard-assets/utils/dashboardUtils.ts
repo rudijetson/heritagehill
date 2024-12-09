@@ -1,8 +1,9 @@
 import { financialData } from './financialData';
 import { costOfGoodsSoldData } from './costOfGoodsSoldData';
-import { expensesData } from './expensesData';
+import { expensesData } from './adsMarketing';
 import { financialMetricsData } from './financialMetricsData';
 import { profitabilityData } from './profitabilityData';
+import { operatingExpensesData } from './operatingExpenses';
 
 export interface DashboardData {
   totalIncome: number;
@@ -13,7 +14,8 @@ export interface DashboardData {
 
 export function getDashboardData(): DashboardData {
   const totalIncome = financialData.income.totalIncome.Total as number;
-  const totalExpenses = financialMetricsData.totalExpenses.Total;
+  const totalExpenses = Object.values(operatingExpensesData)
+    .reduce((sum, category) => sum + (category['Total'] || 0), 0);
   const netIncome = totalIncome - totalExpenses;
 
   const monthlyIncome = Object.entries(financialData.income.totalIncome)
@@ -115,7 +117,8 @@ export function getFinancialOverviewData(): FinancialOverviewData[] {
     month,
     income: financialData.income.totalIncome[month] as number,
     cogs: costOfGoodsSoldData.totalCostOfGoodsSold[month],
-    operatingExpenses: financialMetricsData.totalExpenses[month]
+    operatingExpenses: Object.values(operatingExpensesData)
+      .reduce((sum, category) => sum + (category[month] || 0), 0)
   }));
 }
 
