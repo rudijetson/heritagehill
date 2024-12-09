@@ -2,7 +2,7 @@ import { operatingExpensesData } from './operatingExpenses';
 import { costOfGoodsSoldData } from './costOfGoodsSoldData';
 import { expensesData } from './adsMarketing';
 import { financialMetricsData } from './financialMetricsData';
-import { incomeData } from './incomeData';
+import { incomeData, monthlyIncomeData } from './incomeData';
 
 export interface MonthlyData {
   [key: string]: number;
