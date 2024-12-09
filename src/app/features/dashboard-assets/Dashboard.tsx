@@ -2,11 +2,11 @@
 
 import React from 'react'
 import { ExecutiveSummary } from "@/app/features/dashboard-assets/components/executive/ExecutiveSummary"
-import { MarketOpportunity } from "@/app/features/dashboard-assets/components/market/MarketOpportunity"
+import { MarketOpportunity } from "./components/market/MarketOpportunity"
 import { SupplyChainFlow } from "@/app/features/dashboard-assets/components/supply-chain/SupplyChainFlow"
 import { FinancialLineGraph } from "@/app/features/dashboard-assets/components/financial/lineGraph/FinancialLineGraph"
-import { FinancialTable } from './components/financial/table/FinancialTable'
-import { ProfitabilityHighlights } from './components/financial/profit/ProfitabilityHighlights'
+import { FinancialTable } from "./components/financial/table/FinancialTable"
+import { ProfitabilityHighlights } from "./components/financial/profit/ProfitabilityHighlights"
 import { ProfitabilityLineGraph } from './components/financial/profit/ProfitabilityLineGraph'
 import { SalesChannelLineGraph } from "@/app/features/dashboard-assets/components/sales/SalesChannelLineGraph"
 import { MarketingLineGraph } from "@/app/features/dashboard-assets/components/marketing/MarketingLineGraph"
