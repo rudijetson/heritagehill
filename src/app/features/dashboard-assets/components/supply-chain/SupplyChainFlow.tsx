@@ -1,147 +1,83 @@
 "use client"
 
-import { SupplyChainItem } from './SupplyChainItem'
+import React from 'react';
+import { supplyChainSteps, supportingServices } from './supplyChainData';
 
-const supplyChainSteps = [
-  {
-    stage: "Raw Materials",
-    description: "Source & process base materials",
-    icon: "🌿",
-    operated: false,
-    coopTypes: [
-      "Farmer Cooperatives",
-      "Material Processing Co-ops",
-      "Sourcing Collectives"
-    ]
-  },
-  {
-    stage: "Textile Production",
-    description: "Convert materials to textiles",
-    icon: "🧶",
-    operated: false,
-    coopTypes: [
-      "Mill Worker Co-ops",
-      "Equipment Sharing Co-ops",
-      "Quality Control Co-ops"
-    ]
-  },
-  {
-    stage: "Design",
-    description: "Create garment patterns",
-    icon: "✏️",
-    operated: true,
-    coopTypes: [
-      "Designer Collectives",
-      "Pattern Making Co-ops",
-      "Creative Studios"
-    ]
-  },
-  {
-    stage: "Cut & Sew",
-    description: "Produce finished garments",
-    icon: "✂️",
-    operated: false,
-    coopTypes: [
-      "Garment Worker Co-ops",
-      "Production Facilities",
-      "Training Centers"
-    ]
-  },
-  {
-    stage: "Embellish",
-    description: "Add branding & decoration",
-    icon: "🎨",
-    operated: true,
-    coopTypes: [
-      "Print Shop Co-ops",
-      "Artisan Collectives",
-      "Finishing Studios"
-    ]
-  },
-  {
-    stage: "Storage",
-    description: "Manage inventory & storage",
-    icon: "📦",
-    operated: true,
-    coopTypes: [
-      "Storage Cooperatives",
-      "Logistics Co-ops",
-      "Fulfillment Centers"
-    ]
-  },
-  {
-    stage: "Distribution",
-    description: "Deliver to customers",
-    icon: "🚚",
-    operated: false,
-    coopTypes: [
-      "Delivery Co-ops",
-      "Last-Mile Collectives",
-      "Transport Networks"
-    ]
-  }
-]
-
-export function SupplyChainFlow() {
+export const SupplyChainFlow: React.FC = () => {
   return (
-    <div className="space-y-6">
-      {/* Legend */}
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-2 text-[11px] text-gray-500">
-          <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-sm bg-blue-50/50 border border-blue-200" />
-            <span className="font-medium">Heritage Hill In-House Operations</span>
-          </div>
+    <div id="supply-chain" className="p-8 bg-white">
+      {/* Header */}
+      <div className="max-w-3xl mx-auto mb-16">
+        <div className="mb-6">
+          <span className="text-sm uppercase tracking-wider text-slate-500">
+            Community Supply Chain
+          </span>
+          <h2 className="text-4xl font-bold text-[#1a2b34] mt-2">
+            Cooperative Network Opportunities
+          </h2>
         </div>
-        <p className="text-[11px] text-gray-500 pb-2">
-          Highlighted sections indicate operations directly owned and managed by Heritage Hill
+        <p className="text-lg leading-relaxed text-slate-600">
+          Each step in the supply chain represents potential cooperative businesses 
+          that can be consolidated for community benefit.
         </p>
       </div>
 
-      <div className="relative py-6">
-        {/* In-House Labels - Above everything */}
-        <div className="absolute -top-4 left-0 right-0 z-30">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-3">
-            {supplyChainSteps.map((step) => (
-              <div key={step.stage} className="relative">
-                {step.operated && (
-                  <div className="hidden md:block absolute left-0 right-0 text-center">
-                    <span className="text-[10px] text-blue-500 font-medium bg-white px-2 py-0.5 rounded-full border border-blue-100">
-                      In-House
-                    </span>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+      {/* Supply Chain Steps */}
+      <div className="my-12">
+        {/* Legend */}
+        <div className="text-center mb-8">
+          <span className="inline-flex items-center gap-2 text-sm text-slate-500">
+            <span className="w-4 h-4 bg-green-500/10 border-2 border-green-500 rounded"></span>
+            Heritage Hill Operations
+          </span>
+        </div>
+        
+        {/* Scroll Prompt */}
+        <div className="text-center mb-4 animate-pulse text-slate-400">
+          <span className="inline-flex items-center gap-2 text-sm">
+            Swipe to explore
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </span>
         </div>
 
-        {/* Connecting Line - Behind everything */}
-        <div className="absolute top-[2.75rem] left-0 right-0 z-0">
-          <div className="h-px bg-gray-200" />
-          
-          {/* Connection Points */}
-          <div className="absolute top-0 left-0 right-0 -translate-y-1/2 
-                        flex justify-between px-4 md:px-8 pointer-events-none">
-            {Array(7).fill(null).map((_, i) => (
-              <div
-                key={i}
-                className="w-1 h-1 rounded-full border border-gray-200 bg-white"
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Supply Chain Items */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-3 relative z-20">
+        {/* Steps Container */}
+        <div className="flex flex-nowrap overflow-x-auto scrollbar-hide p-8 gap-4 scroll-smooth">
           {supplyChainSteps.map((step, index) => (
-            <div key={step.stage} className="relative">
-              <SupplyChainItem {...step} index={index} />
-              
-              {/* Arrow */}
+            <div 
+              key={step.title}
+              className={`
+                min-w-[300px] p-6 rounded-2xl shadow-md relative
+                ${step.operated ? 'bg-green-50/50 border-2 border-green-500' : 'bg-white'}
+                transition-all duration-300 hover:shadow-lg
+              `}
+            >
+              <div className="text-4xl mb-4">{step.icon}</div>
+              <div>
+                <h3 className="text-xl font-semibold text-[#1a2b34] mb-2">{step.title}</h3>
+                <p className="text-sm text-slate-500 mb-4">{step.description}</p>
+                
+                <div className="mb-3">
+                  <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+                    Cooperative Opportunities:
+                  </span>
+                </div>
+                
+                <div className="flex flex-wrap gap-2">
+                  {step.cooperativeModels.map((model, idx) => (
+                    <span 
+                      key={idx} 
+                      className="text-xs px-3 py-1 bg-slate-100 rounded-full text-slate-600
+                        hover:bg-slate-200 transition-colors cursor-pointer"
+                    >
+                      {model}
+                    </span>
+                  ))}
+                </div>
+              </div>
               {index < supplyChainSteps.length - 1 && (
-                <div className="hidden md:block absolute top-[2.75rem] -right-1.5 
-                              transform -translate-y-1/2 text-gray-300 z-0">
+                <div className="absolute -right-4 top-1/2 -translate-y-1/2 text-2xl text-slate-400">
                   →
                 </div>
               )}
@@ -149,6 +85,60 @@ export function SupplyChainFlow() {
           ))}
         </div>
       </div>
+
+      {/* Supporting Services */}
+      <div className="mt-16 max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h3 className="text-2xl font-semibold text-[#1a2b34] mb-4">
+            Supporting Services
+          </h3>
+          <p className="text-lg text-slate-600">
+            Professional services that can be shared across the network
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {supportingServices.map((service) => (
+            <div 
+              key={service.title} 
+              className={`
+                flex gap-4 p-6 rounded-2xl shadow-md
+                ${service.operated ? 'bg-green-50/50 border-2 border-green-500' : 'bg-white'}
+                transition-all duration-300 hover:shadow-lg
+              `}
+            >
+              <div className="text-2xl p-3 bg-slate-50 rounded-xl h-fit">
+                {service.icon}
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#1a2b34] mb-2">
+                  {service.title}
+                </h4>
+                <p className="text-sm text-slate-500 mb-4">
+                  {service.description}
+                </p>
+                <div className="mb-2">
+                  <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+                    Shared Service Opportunities:
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {service.cooperativeModels.map((model, idx) => (
+                    <span 
+                      key={idx}
+                      className="text-xs px-3 py-1 bg-slate-100 rounded-full text-slate-600
+                        hover:bg-slate-200 transition-colors cursor-pointer"
+                    >
+                      {model}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  )
-} 
+  );
+}; 
