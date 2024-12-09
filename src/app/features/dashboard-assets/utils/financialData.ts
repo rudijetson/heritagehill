@@ -42,16 +42,28 @@ export interface FinancialData {
 
 export const financialData: FinancialData = {
   income: {
-    totalIncome: { /* ... */ },
-    online: { /* ... */ },
-    retail: { /* ... */ },
-    wholesale: { /* ... */ }
+    totalIncome: incomeData.months.reduce((acc, month, i) => ({
+      ...acc,
+      [month]: monthlyIncomeData[i].value
+    }), {}),
+    online: incomeData.income.online.reduce((acc, value, i) => ({
+      ...acc,
+      [incomeData.months[i]]: value
+    }), {}),
+    retail: incomeData.income.retail.reduce((acc, value, i) => ({
+      ...acc,
+      [incomeData.months[i]]: value
+    }), {}),
+    wholesale: incomeData.income.wholesale.reduce((acc, value, i) => ({
+      ...acc,
+      [incomeData.months[i]]: value
+    }), {})
   },
-  costOfGoodsSold: {
-    totalCostOfGoodsSold: { /* your COGS data */ },
-    production: { /* ... */ },
-    inventory: { /* ... */ },
-    fulfillment: { /* ... */ }
-  }
+  costOfGoodsSold: costOfGoodsSoldData,
+  expenses: {
+    advertisingAndMarketing: expensesData.advertisingAndMarketing,
+    ...operatingExpensesData
+  },
+  metrics: financialMetricsData
 };
 

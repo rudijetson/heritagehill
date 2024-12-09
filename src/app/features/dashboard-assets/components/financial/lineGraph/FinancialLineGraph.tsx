@@ -3,7 +3,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { monthlyIncomeData } from '@/app/features/dashboard-assets/utils/incomeData';
-import { financialData } from '@/app/features/dashboard-assets/utils/financialData';
 import { operatingExpensesData } from '@/app/features/dashboard-assets/utils/operatingExpenses';
 import { costOfGoodsSoldData } from '@/app/features/dashboard-assets/utils/costOfGoodsSoldData';
 import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig";
