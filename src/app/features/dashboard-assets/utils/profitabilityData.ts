@@ -1,4 +1,9 @@
-export const profitabilityData = {
+export interface ProfitabilityData {
+  grossProfit: { [key: string]: number };
+  netOperatingIncome: { [key: string]: number };
+}
+
+export const profitabilityData: ProfitabilityData = {
   grossProfit: {
     "Oct 2019": 6266.77,
     "Nov 2019": 35824.78,
@@ -55,8 +60,8 @@ export const profitabilityData = {
     "Total": 1381074.26
   },
   netOperatingIncome: {
-    "Oct 2019": 5859.18,
-    "Nov 2019": 19492.23,
+    "Oct 2019": 12198.69,
+    "Nov 2019": 28510.21,
     "Dec 2019": -16707.01,
     "Jan 2020": -1395.77,
     "Feb 2020": -136.10,
@@ -107,6 +112,6 @@ export const profitabilityData = {
     "Nov 2023": -967.95,
     "Dec 2023": -938.60,
     "2024": -112.27,
-    "Total": -156826.18
+    "Total": 1479975.06
   }
 };
