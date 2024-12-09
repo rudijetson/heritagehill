@@ -1,7 +1,7 @@
 "use client"
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { getMarketingGraphData } from "@/app/features/dashboard-assets/utils/dashboardUtils"
+import { getProfitabilityData } from "@/app/features/dashboard-assets/utils/dashboardUtils"
 import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig"
 
 interface TooltipProps {
@@ -14,22 +14,16 @@ interface TooltipProps {
   label?: string;
 }
 
-export const MarketingLineGraph: React.FC = () => {
-  const data = getMarketingGraphData();
+export const ProfitabilityLineGraph: React.FC = () => {
+  const data = getProfitabilityData();
 
   const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
     if (active && payload && payload.length) {
-      const sortedPayload = [...payload].sort((a, b) => {
-        if (a.name === "Online Sales") return -1;
-        if (b.name === "Online Sales") return 1;
-        return 0;
-      });
-
       return (
         <div className={tooltipStyle}>
           <p className="font-medium text-gray-900 mb-2">{label}</p>
           <div className="space-y-1">
-            {sortedPayload.map((entry, index) => (
+            {payload.map((entry, index) => (
               <p 
                 key={index} 
                 className="text-sm"
@@ -49,19 +43,19 @@ export const MarketingLineGraph: React.FC = () => {
   return (
     <div className="bg-white rounded-lg shadow-sm">
       <div className={chartLayout.header.wrapper}>
-        <h3 className={chartLayout.header.title}>Marketing Performance</h3>
-        <p className={chartLayout.header.subtitle}>Monthly ad spend and online sales</p>
+        <h3 className={chartLayout.header.title}>Profitability Trends</h3>
+        <p className={chartLayout.header.subtitle}>Gross Profit and Net Operating Income</p>
         <div className="mt-4 text-gray-600 text-sm">
           <p>
-            This visualization demonstrates our marketing efficiency and the relationship 
-            between advertising investments and sales outcomes.
+            Track our profitability metrics over time, showing the relationship between 
+            gross profit and net operating income.
           </p>
           <div className="mt-2">
             <span className="font-medium text-gray-700">Key insights:</span>
             <ul className="list-disc pl-5 mt-1 space-y-1">
-              <li>Ad spend optimization patterns</li>
-              <li>Sales response to marketing investments</li>
-              <li>Impact of iOS 14.5 and other market changes</li>
+              <li>Profit margin trends</li>
+              <li>Operating efficiency</li>
+              <li>Seasonal patterns</li>
             </ul>
           </div>
         </div>
@@ -86,20 +80,19 @@ export const MarketingLineGraph: React.FC = () => {
             <Legend {...chartLayout.chart.legend} />
             <Line 
               {...chartLayout.chart.line}
-              dataKey="onlineSales" 
+              dataKey="grossProfit" 
               stroke="#1e40af"
-              name="Online Sales" 
+              name="Gross Profit" 
             />
             <Line 
               {...chartLayout.chart.line}
-              dataKey="adSpend" 
+              dataKey="netOperatingIncome" 
               stroke="#991b1b"
-              name="Ad Spend" 
+              name="Net Operating Income" 
             />
           </LineChart>
         </ResponsiveContainer>
       </div>
     </div>
-  )
-}
-
+  );
+}; 

@@ -1,8 +1,11 @@
 "use client"
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { getMarketingGraphData } from "@/app/features/dashboard-assets/utils/dashboardUtils"
-import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig"
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { monthlyIncomeData } from '../../../utils/incomeData';
+import { financialData } from '../../../utils/financialData';
+import { operatingExpensesData } from '@/app/features/dashboard-assets/utils/operatingExpenses';
+import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig";
 
 interface TooltipProps {
   active?: boolean;
@@ -14,22 +17,23 @@ interface TooltipProps {
   label?: string;
 }
 
-export const MarketingLineGraph: React.FC = () => {
-  const data = getMarketingGraphData();
+export const FinancialLineGraph: React.FC = () => {
+  const data = monthlyIncomeData.map(item => ({
+    month: item.month,
+    totalIncome: item.value,
+    cogs: financialData.costOfGoodsSold.totalCostOfGoodsSold[item.month] || 0,
+    operatingExpenses: Object.values(operatingExpensesData).reduce(
+      (sum, category) => sum + (category[item.month] || 0), 0
+    )
+  }));
 
   const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
     if (active && payload && payload.length) {
-      const sortedPayload = [...payload].sort((a, b) => {
-        if (a.name === "Online Sales") return -1;
-        if (b.name === "Online Sales") return 1;
-        return 0;
-      });
-
       return (
         <div className={tooltipStyle}>
           <p className="font-medium text-gray-900 mb-2">{label}</p>
           <div className="space-y-1">
-            {sortedPayload.map((entry, index) => (
+            {payload.map((entry, index) => (
               <p 
                 key={index} 
                 className="text-sm"
@@ -49,19 +53,19 @@ export const MarketingLineGraph: React.FC = () => {
   return (
     <div className="bg-white rounded-lg shadow-sm">
       <div className={chartLayout.header.wrapper}>
-        <h3 className={chartLayout.header.title}>Marketing Performance</h3>
-        <p className={chartLayout.header.subtitle}>Monthly ad spend and online sales</p>
+        <h3 className={chartLayout.header.title}>Financial Overview</h3>
+        <p className={chartLayout.header.subtitle}>Monthly Income, COGS, and Operating Expenses</p>
         <div className="mt-4 text-gray-600 text-sm">
           <p>
-            This visualization demonstrates our marketing efficiency and the relationship 
-            between advertising investments and sales outcomes.
+            This visualization shows our key financial metrics over time, highlighting 
+            the relationship between income, costs, and operating expenses.
           </p>
           <div className="mt-2">
             <span className="font-medium text-gray-700">Key insights:</span>
             <ul className="list-disc pl-5 mt-1 space-y-1">
-              <li>Ad spend optimization patterns</li>
-              <li>Sales response to marketing investments</li>
-              <li>Impact of iOS 14.5 and other market changes</li>
+              <li>Revenue growth patterns</li>
+              <li>Cost management effectiveness</li>
+              <li>Operating expense trends</li>
             </ul>
           </div>
         </div>
@@ -86,20 +90,26 @@ export const MarketingLineGraph: React.FC = () => {
             <Legend {...chartLayout.chart.legend} />
             <Line 
               {...chartLayout.chart.line}
-              dataKey="onlineSales" 
-              stroke="#1e40af"
-              name="Online Sales" 
+              dataKey="totalIncome" 
+              stroke="#0EA5E9"
+              name="Total Income" 
             />
             <Line 
               {...chartLayout.chart.line}
-              dataKey="adSpend" 
-              stroke="#991b1b"
-              name="Ad Spend" 
+              dataKey="cogs" 
+              stroke="#F43F5E"
+              name="COGS" 
+            />
+            <Line 
+              {...chartLayout.chart.line}
+              dataKey="operatingExpenses" 
+              stroke="#8B5CF6"
+              name="Operating Expenses" 
             />
           </LineChart>
         </ResponsiveContainer>
       </div>
     </div>
-  )
-}
+  );
+};
 
