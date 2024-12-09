@@ -1,9 +1,9 @@
-import { financialData } from './financialData';
-import { costOfGoodsSoldData } from './costOfGoodsSoldData';
-import { expensesData } from './adsMarketing';
-import { financialMetricsData } from './financialMetricsData';
-import { profitabilityData } from './profitabilityData';
-import { operatingExpensesData } from './operatingExpenses';
+import { financialData } from '@/app/features/dashboard-assets/utils/financialData';
+import { costOfGoodsSoldData } from '@/app/features/dashboard-assets/utils/costOfGoodsSoldData';
+import { expensesData } from '@/app/features/dashboard-assets/utils/adsMarketing';
+import { financialMetricsData } from '@/app/features/dashboard-assets/utils/financialMetricsData';
+import { profitabilityData } from '@/app/features/dashboard-assets/utils/profitabilityData';
+import { operatingExpensesData } from '@/app/features/dashboard-assets/utils/operatingExpenses';
 
 export interface DashboardData {
   totalIncome: number;
