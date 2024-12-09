@@ -5,6 +5,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { monthlyIncomeData } from '@/app/features/dashboard-assets/utils/incomeData';
 import { financialData } from '@/app/features/dashboard-assets/utils/financialData';
 import { operatingExpensesData } from '@/app/features/dashboard-assets/utils/operatingExpenses';
+import { costOfGoodsSoldData } from '@/app/features/dashboard-assets/utils/costOfGoodsSoldData';
 import { chartLayout, formatCurrency, tooltipStyle } from "@/app/features/dashboard-assets/utils/chartConfig";
 
 interface TooltipProps {
@@ -21,7 +22,7 @@ export const FinancialLineGraph: React.FC = () => {
   const data = monthlyIncomeData.map(item => ({
     month: item.month,
     totalIncome: item.value,
-    cogs: financialData.costOfGoodsSold.totalCostOfGoodsSold[item.month] || 0,
+    cogs: costOfGoodsSoldData.totalCostOfGoodsSold[item.month] || 0,
     operatingExpenses: Object.values(operatingExpensesData).reduce(
       (sum, category) => sum + (category[item.month] || 0), 0
     )
