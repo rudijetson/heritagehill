@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { marketMetrics, MarketMetric } from '@/app/features/dashboard-assets/utils/marketData';
+import { marketMetrics } from '../market/marketData';
+import type { MarketMetric } from '../market/marketData';
 
 export const MarketOpportunity: React.FC = () => {
   return (
@@ -37,7 +38,7 @@ export const MarketOpportunity: React.FC = () => {
           Identified Buying Community
         </h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {marketMetrics.map((metric: MarketMetric) => (
             <div 
               key={metric.label} 

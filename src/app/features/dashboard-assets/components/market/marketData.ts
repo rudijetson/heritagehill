@@ -1,4 +1,4 @@
-interface MarketMetric {
+export interface MarketMetric {
   value: string;
   label: string;
   sublabel: string;

@@ -45,7 +45,8 @@ export const ProfitabilityLineGraph: React.FC = () => {
       <div className={chartLayout.header.wrapper}>
         <h3 className={chartLayout.header.title}>Profitability Trends</h3>
         <p className={chartLayout.header.subtitle}>Gross Profit and Net Operating Income</p>
-        <div className="mt-4 text-gray-600 text-sm">
+        
+        <div className="text-gray-600 text-sm">
           <p>
             Track our profitability metrics over time, showing the relationship between 
             gross profit and net operating income.

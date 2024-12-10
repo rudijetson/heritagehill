@@ -1,10 +1,61 @@
 "use client"
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const DashboardIntro: React.FC = () => {
   return (
-    <section className="relative overflow-hidden py-24 px-8 bg-gradient-to-br from-[#1a2b34] to-[#2c3e50] text-white">
+    <section className="relative overflow-hidden py-24 px-8 bg-gradient-to-br from-[#1a2b34] via-[#243442] to-[#2c3e50] text-white">
+      {/* Subtle space gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent" />
+
+      {/* Subtle stardust effect */}
+      <div 
+        className="absolute inset-0 opacity-[0.15]"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+            radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0)
+          `,
+          backgroundSize: '24px 24px, 48px 48px'
+        }}
+      />
+
+      {/* Subtle twinkling effect */}
+      <motion.div
+        className="absolute inset-0 opacity-[0.1]"
+        animate={{
+          opacity: [0.1, 0.15, 0.1],
+          scale: [1, 1.05, 1]
+        }}
+        transition={{
+          duration: 5,
+          ease: "easeInOut",
+          repeat: Infinity
+        }}
+        style={{
+          backgroundImage: `radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
+          backgroundSize: '32px 32px'
+        }}
+      />
+
+      {/* Subtle glow effect */}
+      <motion.div
+        className="absolute inset-0 opacity-[0.07]"
+        animate={{
+          background: [
+            'radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%)',
+            'radial-gradient(circle at 60% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 40%)',
+            'radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%)'
+          ]
+        }}
+        transition={{
+          duration: 10,
+          ease: "linear",
+          repeat: Infinity
+        }}
+      />
+
       {/* Modern Badge */}
       <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-8">
         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
