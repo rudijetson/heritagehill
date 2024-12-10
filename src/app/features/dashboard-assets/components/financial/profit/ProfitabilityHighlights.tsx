@@ -1,39 +1,29 @@
 "use client"
 
+import { profitabilityData } from '@/app/features/dashboard-assets/utils/profitabilityData';
+
 export function ProfitabilityHighlights() {
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+  };
+
+  // Calculate total Net Operating Income
+  const netOperatingIncome = profitabilityData.netOperatingIncome.Total;
+
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6">
-      <h4 className="text-lg font-semibold text-gray-900 mb-4">Profitability Analysis</h4>
-      
-      <div className="space-y-4">
-        <div>
-          <h5 className="font-medium text-gray-900">Gross Margin Development</h5>
-          <p className="text-gray-600 mt-1">
-            Gross margins improved from 35% in Q4 2019 to a peak of 48% in Q3 2021. 
-            This improvement came through better supplier relationships, increased order 
-            volumes, and optimized production processes. However, supply chain disruptions 
-            in 2022 created downward pressure.
-          </p>
-        </div>
-
-        <div>
-          <h5 className="font-medium text-gray-900">Operating Income Trajectory</h5>
-          <p className="text-gray-600 mt-1">
-            We achieved operating profitability in Q4 2020, maintaining positive operating 
-            income through 2021. The challenging market conditions of 2022-2023 led to a 
-            strategic focus on maintaining market presence over short-term profitability.
-          </p>
-        </div>
-
-        <div>
-          <h5 className="font-medium text-gray-900">Marketing Efficiency (ROAS)</h5>
-          <p className="text-gray-600 mt-1">
-            Return on ad spend peaked at 4.2x in 2021 before the iOS 14.5 privacy changes. 
-            Post-update, we maintained a healthy 2.8x ROAS through diversified marketing 
-            channels and improved targeting strategies.
-          </p>
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="bg-white rounded-lg shadow-sm p-6">
+        <h3 className="text-sm font-medium text-gray-500 mb-1">Net Operating Income</h3>
+        <p className={`text-2xl font-semibold ${netOperatingIncome < 0 ? 'text-red-600' : 'text-blue-600'}`}>
+          {formatCurrency(netOperatingIncome)}
+        </p>
       </div>
+      {/* Add other profitability highlights as needed */}
     </div>
-  )
+  );
 } 
