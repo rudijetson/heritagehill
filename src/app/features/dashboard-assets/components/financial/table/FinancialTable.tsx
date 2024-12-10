@@ -132,8 +132,8 @@ export function FinancialTable() {
       'Regulatory': aggregateByPeriod(operatingExpensesData.regulatory)
     },
     'Summary': {
-      'Total Expenses': aggregateByPeriod(profitabilityData.netOperatingIncome),
-      'Net Operating Income': aggregateByPeriod(profitabilityData.grossProfit)
+      'Total Expenses': aggregateByPeriod(operatingExpensesData.totalExpenses),
+      'Net Operating Income': aggregateByPeriod(profitabilityData.netOperatingIncome)
     }
   }), []);
 
