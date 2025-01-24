@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Network, Wallet, Share2 } from 'lucide-react';
-import { WaitlistModal } from './WaitlistModal';
+import Image from 'next/image';
 
 export const Hero: React.FC = () => {
   const containerVariants = {
@@ -30,69 +29,24 @@ export const Hero: React.FC = () => {
     }
   };
 
-  const titleVariants = {
-    hidden: { opacity: 0 },
-    visible: (i: number) => ({
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        delay: i * 0.05
-      }
-    })
-  };
-
-  const featureVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 60,
-        damping: 20
-      }
-    }
-  };
-
-  const networkVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 50,
-        damping: 20,
-        mass: 1
-      }
-    }
-  };
-
-  const [showWaitlist, setShowWaitlist] = React.useState(false);
-
-  const titleContent = [
-    { text: 'Heritage', className: 'from-black to-slate-800' },
-    { text: 'Hill', className: 'from-red-600 to-green-600' },
-  ];
-
   const letterContent = {
     title: "Honoring Our Legacy, Embracing the Future",
     greeting: "Dear Heritage Hill Community,",
-    introduction: <>I'm Brandon Z. Hoff, founder of Heritage Hill, and as we transition into a new chapter, I want to reflect on the roots of our journey—a vision deeply anchored in the wisdom of those who came before us. Heritage Hill began with a simple yet profound goal: <em>to do work that would make our ancestors proud</em>. This vision was inspired by the enduring legacy of cooperative economics within the Black Diaspora, principles of Kwanzaa like <em>Ujamaa</em> (collective economics), and the groundbreaking scholarship of <a href="https://www.loc.gov/item/08031624/" className="text-green-600 hover:text-green-700">W.E.B. Du Bois</a> and <a href="https://www.academia.edu/83476479/Collective_Courage_A_History_of_African_American_Cooperative_Economic_Thought_and_Practice_by_Jessica_Gordon_Nembhard" className="text-green-600 hover:text-green-700">Dr. Jessica Gordon Nembhard</a>, whose work illuminated the power of cooperation as a tool for liberation.</>,
-    history: <>W.E.B. Du Bois once wrote, <em>"Co-operation is the rhythm of life; it is the heartbeat of any people's economic survival."</em> In his <a href="https://archive.org/details/economiccooperat00dubo" className="text-green-600 hover:text-green-700">1907 study</a>, he documented how Black communities turned to cooperatives to combat systemic exclusion, pooling resources to build schools, farms, and mutual aid networks. Decades later, Dr. Gordon Nembhard's <a href="https://archive.org/details/collectivecourag0000gord" className="text-green-600 hover:text-green-700">Collective Courage</a> echoed this truth, chronicling how African Americans—from the Freedom Quilting Bee of Alabama to the North Carolina Mutual Insurance Company—used cooperatives to reclaim autonomy and create thriving ecosystems in the face of oppression.</>,
-    legacy: <>Heritage Hill's Co-op was our humble contribution to this lineage. Like the mutual aid societies and Black-owned collectives of the past, we sought to centralize resources, democratize supply chains, and empower students and makers through shared ownership. With support from <a href="https://coopcincy.org/heritage-hill" className="text-green-600 hover:text-green-700">Co-op Cincy</a>, we transitioned to a worker-owned model in 2022, ensuring employees could benefit equitably from the company's success. Though we sunset the Co-op today, its spirit lives on in the lessons we carry forward: <strong>collaboration over competition, community over extraction, and resilience as our birthright.</strong></>,
-    evolution: <>What began as a t-shirt company evolved into a laboratory for cooperative economics. We partnered with high schools and HBCUs to create student-led spirit shops, teaching entrepreneurship through hands-on work. We dreamed of a network where Black designers, manufacturers, and educators could thrive together—a vision fueled by Du Bois's belief that <em>"the Negro must be taught the meaning of co-operation, self-help, and solidarity."</em></>,
-    nextChapter: <>Now, we turn to a new frontier: <a href="https://www.tiktok.com/@brandonzh" className="text-green-600 hover:text-green-700">artificial intelligence and its impact on literacy, work, and equity</a>. Over the past two years, I've immersed myself in understanding large language models and AI's ethical implications. Just as cooperatives challenged economic exclusion, we must now ensure technology uplifts, rather than marginalizes, our communities.</>,
+    introduction: <>I&apos;m Brandon Z. Hoff, founder of Heritage Hill, and as we transition into a new chapter, I want to reflect on the roots of our journey&mdash;a vision deeply anchored in the wisdom of those who came before us. Heritage Hill began with a simple yet profound goal: <em>to do work that would make our ancestors proud</em>. This vision was inspired by the enduring legacy of cooperative economics within the Black Diaspora, principles of Kwanzaa like <em>Ujamaa</em> (collective economics), and the groundbreaking scholarship of <a href="https://www.loc.gov/item/08031624/" className="text-green-600 hover:text-green-700">W.E.B. Du Bois</a> and <a href="https://www.academia.edu/83476479/Collective_Courage_A_History_of_African_American_Cooperative_Economic_Thought_and_Practice_by_Jessica_Gordon_Nembhard" className="text-green-600 hover:text-green-700">Dr. Jessica Gordon Nembhard</a>, whose work illuminated the power of cooperation as a tool for liberation.</>,
+    history: <>W.E.B. Du Bois once wrote, <em>&ldquo;Co-operation is the rhythm of life; it is the heartbeat of any people&apos;s economic survival.&rdquo;</em> In his <a href="https://archive.org/details/economiccooperat00dubo" className="text-green-600 hover:text-green-700">1907 study</a>, he documented how Black communities turned to cooperatives to combat systemic exclusion, pooling resources to build schools, farms, and mutual aid networks. Decades later, Dr. Gordon Nembhard&apos;s <a href="https://archive.org/details/collectivecourag0000gord" className="text-green-600 hover:text-green-700">Collective Courage</a> echoed this truth, chronicling how African Americans&mdash;from the Freedom Quilting Bee of Alabama to the North Carolina Mutual Insurance Company&mdash;used cooperatives to reclaim autonomy and create thriving ecosystems in the face of oppression.</>,
+    legacy: <>Heritage Hill&apos;s Co-op was our humble contribution to this lineage. Like the mutual aid societies and Black-owned collectives of the past, we sought to centralize resources, democratize supply chains, and empower students and makers through shared ownership. With support from <a href="https://coopcincy.org/heritage-hill" className="text-green-600 hover:text-green-700">Co-op Cincy</a>, we transitioned to a worker-owned model in 2022, ensuring employees could benefit equitably from the company&apos;s success. Though we sunset the Co-op today, its spirit lives on in the lessons we carry forward: <strong>collaboration over competition, community over extraction, and resilience as our birthright.</strong></>,
+    evolution: <>What began as a t-shirt company evolved into a laboratory for cooperative economics. We partnered with high schools and HBCUs to create student-led spirit shops, teaching entrepreneurship through hands-on work. We dreamed of a network where Black designers, manufacturers, and educators could thrive together&mdash;a vision fueled by Du Bois&apos;s belief that <em>&ldquo;the Negro must be taught the meaning of co-operation, self-help, and solidarity.&rdquo;</em></>,
+    nextChapter: <>Now, we turn to a new frontier: <a href="https://www.tiktok.com/@brandonzh" className="text-green-600 hover:text-green-700">artificial intelligence and its impact on literacy, work, and equity</a>. Over the past two years, I&apos;ve immersed myself in understanding large language models and AI&apos;s ethical implications. Just as cooperatives challenged economic exclusion, we must now ensure technology uplifts, rather than marginalizes, our communities.</>,
     furtherReading: <>
       <h3 className="text-xl font-semibold text-slate-900 mt-12 mb-4">Further Reading & Resources</h3>
       <ol className="list-decimal pl-5">
-        <li><a href="http://www.webdubois.org/wdb-AtlUniv.html" className="text-green-600 hover:text-green-700">W.E.B. Du Bois's Atlanta University Studies</a>: Explore Du Bois's foundational research on Black economic cooperation.</li>
+        <li><a href="http://www.webdubois.org/wdb-AtlUniv.html" className="text-green-600 hover:text-green-700">W.E.B. Du Bois&apos;s Atlanta University Studies</a>: Explore Du Bois&apos;s foundational research on Black economic cooperation.</li>
         <li><a href="https://strangematters.coop/the-black-cooperative-economy-jessica-gordon-nembhard-collective-courage/" className="text-green-600 hover:text-green-700">The Black Cooperative Economy</a>: A deep dive into historical and modern cooperative models.</li>
-        <li><a href="https://ncbaclusa.coop/blog/co-op-cincy-supports-transition-of-black-owned-apparel-company-heritage-hill-to-worker-ownership/" className="text-green-600 hover:text-green-700">Co-op Cincy's Business Legacy Fund</a>: Learn how worker ownership transforms communities.</li>
+        <li><a href="https://ncbaclusa.coop/blog/co-op-cincy-supports-transition-of-black-owned-apparel-company-heritage-hill-to-worker-ownership/" className="text-green-600 hover:text-green-700">Co-op Cincy&apos;s Business Legacy Fund</a>: Learn how worker ownership transforms communities.</li>
       </ol>
     </>,
     closing: <>
-      <p>To quote Dr. Gordon Nembhard: <em>"Cooperatives are not just economic tools—they are acts of resistance, resilience, and radical hope."</em> While Heritage Hill's Co-op closes, its heartbeat remains alive in our ongoing commitment to education, cooperative principles, and justice. Thank you for walking this path with me. Together, we honor the ancestors by building futures they'd marvel at.</p>
+      <p>To quote Dr. Gordon Nembhard: <em>&ldquo;Cooperatives are not just economic tools&mdash;they are acts of resistance, resilience, and radical hope.&rdquo;</em> While Heritage Hill&apos;s Co-op closes, its heartbeat remains alive in our ongoing commitment to education, cooperative principles, and justice. Thank you for walking this path with me. Together, we honor the ancestors by building futures they&apos;d marvel at.</p>
       
       <div className="mt-8 mb-4">
         <p className="mb-2">With solidarity and hope,</p>
@@ -104,12 +58,12 @@ export const Hero: React.FC = () => {
 
   const upcomingEvents = [
     { 
-      name: "GatherVerse AI Summit 2025: Humanity's Path Forward", 
+      name: "GatherVerse AI Summit 2025: Humanity&apos;s Path Forward", 
       location: "Virtual",
       date: "February 4-5, 2025",
       time: "8:00 AM PST",
       description: "3rd Annual GatherVerse AI Summit - A global consortium dedicated to bringing informed dialogues at the crossroads of AI and emerging technologies and their implications for humanity.",
-      speaking: "Speaking on 'AI and the Human Condition: Examining the Ethical Dimensions of Innovation'",
+      speaking: "Speaking on &apos;AI and the Human Condition: Examining the Ethical Dimensions of Innovation&apos;",
       speakingTime: "February 4, 2025 • 5:15 PM UTC",
       url: "https://www.linkedin.com/posts/adlunaminc_aisummit2025-gatherverse-artificialintelligence-activity-7288486187822977025-9e7i"
     },
@@ -140,56 +94,6 @@ export const Hero: React.FC = () => {
     { platform: "Portfolio", url: "https://bzhoff.com" }
   ];
 
-  const networkStats = (
-    <motion.div 
-      variants={networkVariants}
-      className="flex justify-center gap-4 my-12 px-4 flex-nowrap"
-    >
-      {[
-        { value: '15,000+', label: 'Local Makers' },
-        { value: '600+', label: 'Partnerships' },
-        { value: '50+', label: 'Supply Chains' }
-      ].map((stat) => (
-        <div key={stat.label} className="text-center whitespace-nowrap">
-          <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
-            {stat.value}
-          </div>
-          <div className="text-xs md:text-sm text-slate-400 mt-1">{stat.label}</div>
-        </div>
-      ))}
-    </motion.div>
-  );
-
-  const ctaButtons = (
-    <motion.div 
-      className="flex justify-center gap-4 my-10 px-4 flex-wrap"
-      variants={itemVariants}
-    >
-      <motion.button 
-        whileHover={{ y: -4, scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={() => setShowWaitlist(true)}
-        className="px-8 py-3.5 rounded-xl text-base font-semibold
-          bg-gradient-to-r from-red-600 to-green-600 text-white
-          hover:shadow-lg hover:shadow-green-500/30
-          transition-all duration-300 flex items-center gap-2"
-      >
-        Join Our Journey <ArrowRight className="w-4 h-4" />
-      </motion.button>
-      
-      <motion.button 
-        whileHover={{ y: -4, scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={() => document.getElementById('executive')?.scrollIntoView({ behavior: 'smooth' })}
-        className="px-8 py-3.5 rounded-xl text-base font-semibold
-          bg-white/10 hover:bg-white/20
-          transition-all duration-300"
-      >
-        Explore Ecosystem
-      </motion.button>
-    </motion.div>
-  );
-
   return (
     <section className="relative min-h-screen py-24 px-8 overflow-hidden bg-white text-slate-900">
       <motion.div 
@@ -200,10 +104,12 @@ export const Hero: React.FC = () => {
       >
         {/* Logo */}
         <motion.div className="text-center mb-16" variants={itemVariants}>
-          <img 
+          <Image 
             src="/Heritage Hill RBG LOGO.png" 
             alt="Heritage Hill Logo" 
-            className="w-32 h-32 mx-auto mb-8 object-contain"
+            width={128}
+            height={128}
+            className="mx-auto mb-8 object-contain"
           />
         </motion.div>
 
@@ -318,11 +224,6 @@ export const Hero: React.FC = () => {
           </div>
         </motion.div>
       </motion.div>
-
-      {/* Keep the Waitlist Modal */}
-      {showWaitlist && (
-        <WaitlistModal onClose={() => setShowWaitlist(false)} />
-      )}
     </section>
   );
 };
