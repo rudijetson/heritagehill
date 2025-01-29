@@ -30,16 +30,16 @@ export const Hero: React.FC = () => {
   };
 
   const letterContent = {
-    title: "Heritage Hill: Our Journey",
+    title: "Heritage Hill: Our Cooperative Journey",
     greeting: "Welcome!",
     introduction: <>
-      I&apos;m Brandon Z. Hoff, founder of Heritage Hill. This dashboard chronicles our journey as a cooperative organization, showcasing both our successes and challenges. As part of our commitment to cooperative economics and open book management, we believe in full transparency with our financial data and operational history.
+      I&apos;m Brandon Z. Hoff, founder of Heritage Hill. We have made the decision to sunset our cooperative and will no longer be designing and distributing HBCU and Divine Nine apparel. This dashboard chronicles our journey, showcasing both successes and challenges in line with our commitment to cooperative economics and open book management.
     </>,
     journey: <>
-      What started as a t-shirt company grew into something more meaningful - a laboratory for cooperative economics and shared ownership. Through partnerships with high schools and HBCUs, we&apos;ve created student-led spirit shops and explored new models of entrepreneurship.
+      Heritage Hill began as an initiative to explore the viability of cooperative models and ecosystems. Through partnerships with high schools and HBCUs, we created student-led spirit shops and explored new models of entrepreneurship. Our key learning was that successful cooperative initiatives must grow organically from within communities, with trust being the cornerstone of any sustainable cooperative ecosystem.
     </>,
     techNote: <>
-      Interestingly, this entire dashboard was built using Next.js and modern AI tools. As someone who learned to code through generative AI, I wanted to showcase not just our business journey, but also how technology can empower individuals to create and innovate.
+      What&apos;s next? For the past two years, I&apos;ve been immersed in artificial intelligence, particularly generative AI. In fact, I built this entire dashboard using AI tools, demonstrating how technology can empower individuals to create and innovate. Through <a href="https://rudi-vert.vercel.app" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700">RUDI</a> (Responsible Use of Digital Intelligence), we&apos;re continuing our commitment to research and education, exploring how to combine cooperative economics with hands-on learning for business and wealth building.
     </>,
     closing: <>
       <div className="mt-8 mb-4">
@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
   const socialLinks = [
     { platform: "LinkedIn", url: "https://linkedin.com/in/hoffbrandon" },
     { platform: "Newsletter", url: "https://bzhoff.beehiiv.com" },
-    { platform: "TikTok", url: "https://tiktok.com/hoffdigital" },
+    { platform: "TikTok", url: "https://www.tiktok.com/@hoffdigital" },
     { platform: "YouTube", url: "https://youtube.com/@hoffdigital" },
     { platform: "Portfolio", url: "https://bzhoff.com" }
   ];
