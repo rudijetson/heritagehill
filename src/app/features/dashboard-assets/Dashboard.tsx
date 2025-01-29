@@ -90,6 +90,20 @@ export function Dashboard() {
             </div>
           </section>
         </div>
+
+        {/* Footer */}
+        <footer className="py-8 text-center text-slate-600 border-t border-slate-100">
+          <p className="text-sm">
+            Built by <a 
+              href="https://bzhoff.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-green-600 hover:text-green-700 transition-colors font-medium"
+            >
+              BZHOFF
+            </a> with <span className="text-red-500">❤️</span>
+          </p>
+        </footer>
       </main>
     </motion.div>
   )
